@@ -1,0 +1,28 @@
+{
+
+    "manifest_version": 2,
+    "name": "WebArmyKnife",
+    "version": "0.1",
+   
+    "description": "A Toolbox for WebSecurity",
+    
+    "icons": {
+        "48": "icons/icons8-work-48.png",
+        "96": "icons/icons8-work-96.png"
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["main.js"]
+      }
+    ],
+    "browser_action": {
+        "default_icon": {
+            "19": "icons/icons8-work-19.png",
+            "38": "icons/icons8-work-38.png"
+        },
+        "default_title": "open the knife",
+        "default_popup": "src/index.html"
+    }
+  }
