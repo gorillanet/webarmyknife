@@ -44,3 +44,15 @@ input[name="tab_item"] {
     background-color: #455a64;
     color: #fff;
 }
+table#ascii{
+    border: solid 1px #ccc;
+    border-collapse: collapse;
+    font-family: monospace;
+}
+table#ascii>table{
+    border: none;
+    border-collapse: collapse;
+}
+td {
+    border:none;
+}
