@@ -26,13 +26,14 @@ input[name="tab_item"] {
 }
 /*タブ切り替えの中身のスタイル*/
 .tab_content {
+    min-width: 400px;
     display: none;
-    padding: 40px 40px 0;
+    padding: 20px 20px 0;
     clear: both;
     overflow: hidden;
 }
 /*選択されているタブのコンテンツのみを表示*/
-#all:checked ~ #all_content,
+#tab_ed:checked ~ #tab_ed_content,
 #programming:checked ~ #programming_content,
 #design:checked ~ #design_content {
     display: block;
