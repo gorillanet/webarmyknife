@@ -11,6 +11,9 @@
         "96": "icons/icons8-work-96.png"
     },
   
+    "permissions": [
+        "activeTab"
+    ],
     "content_scripts": [
       {
         "matches": ["*://*/*"],
