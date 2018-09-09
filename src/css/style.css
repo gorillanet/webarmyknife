@@ -1,3 +1,6 @@
+textarea {
+    resize: none;
+}
 .tabs {
     margin-top: 0px;
     padding: 5px 5px;
@@ -34,7 +37,7 @@ input[name="tab_item"] {
 }
 /*選択されているタブのコンテンツのみを表示*/
 #tab_ed:checked ~ #tab_ed_content,
-#programming:checked ~ #programming_content,
+#expose_password:checked ~ #expose_password_content,
 #design:checked ~ #design_content {
     display: block;
 }
