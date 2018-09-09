@@ -32,7 +32,7 @@ function html10(str, isencode) {
     if (isencode) {
         try{
             for(let val of str){
-                result += "&#x" + val.codePointAt(0).toString(10) + ";";
+                result += "&#" + val.codePointAt(0).toString(10) + ";";
             }
             return result;
         } catch(E){
@@ -68,7 +68,55 @@ function html16(str, isencode) {
                 return String.fromCharCode('0x' + $1);
             });
         } catch (E) {
-            
+            return E;
+        }
+    }
+}
+
+function utf8_16(str, isencode) {
+    if (isencode) {
+        try {
+            var code, pref = {1: '\\u000', 2: '\\u00', 3: '\\u0', 4: '\\u'};
+            return str.replace(/\W/g, function(c) {
+                return pref[(code = c.charCodeAt(0).toString(16)).length] + code;
+            });
+        } catch (E) {
+            return E
+        }
+    }else{
+        try {
+            var r = /\\u([\d\w]{4})/gi;
+            x = str.replace(r, function (match, grp) {
+            return String.fromCharCode(parseInt(grp, 16)); } );
+            return unescape(x);
+        } catch (E) {
+            return E;
+        }
+    }
+}
+
+function js(str, isencode) {
+    if (isencode) {
+        try {
+            result="";
+            for(let val of str){
+                result += "\\" + val.codePointAt(0).toString(8);
+            }
+            return result;
+        } catch (E) {
+            return E
+        }
+    }else{
+        try {
+            var r = /\\[0-9]{1-3}/gi;
+            x="";
+            for(let val of str){
+                x += val.replace(r, function (match, grp) {
+                return String.fromCharCode(parseInt(grp, 8)); } );
+            }
+            return x;
+        } catch (E) {
+            return E;
         }
     }
 }
@@ -98,9 +146,10 @@ var decode_encode = function(){
         break;
 
         case "unicode":
-            
+            decoded_text = utf8_16(text, is_encode);
             break;
-
+        case "js":
+            decoded_text = js(text, is_encode);
         default:
             break;
     }
