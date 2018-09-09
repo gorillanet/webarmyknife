@@ -1,3 +1,6 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+    }
 textarea {
     resize: none;
 }
@@ -38,7 +41,9 @@ input[name="tab_item"] {
 /*選択されているタブのコンテンツのみを表示*/
 #tab_ed:checked ~ #tab_ed_content,
 #expose_password:checked ~ #expose_password_content,
-#design:checked ~ #design_content {
+#xml:checked ~ #xml_content,
+#diff:checked ~ #diff_content,
+#json:checked ~ #json_content {
     display: block;
 }
 /*選択されているタブのスタイルを変える*/

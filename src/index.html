@@ -14,9 +14,15 @@
         <input id="expose_password" type="radio" name="tab_item">
         <label class="tab_item" for="expose_password">ExPass</label>
 
-        <!-- input id="design" type="radio" name="tab_item">
-        <label class="tab_item" for="design">デザイン</label-->
-        <!--Content-->
+        <input id="json" type="radio" name="tab_item">
+        <label class="tab_item" for="json">JSON整形</label>
+
+        <input id="xml" type="radio" name="tab_item">
+        <label class="tab_item" for="xml">XML整形</label>
+
+        <input id="diff" type="radio" name="tab_item">
+        <label class="tab_item" for="diff">diff</label>
+
         <div class="tab_content" id="tab_ed_content">
             <div class="tab_content_description">
                 <span id="summary">エンコード/デコード(未実装あり))</span>
@@ -33,6 +39,7 @@
                         <option value="html16">HTML(HEX)</option>
                         <option value="html10">HTML(DEC)</option>
                         <option value="unicode">Unicode</option>
+                        <option value="js">JS Executable</option>
                     </select>
                 </div>
                 <textarea readonly rows="4" cols="40" id="decoded_text" type="text" value=""></textarea>
@@ -49,15 +56,32 @@
             <p>※誤爆に気をつけよう</p>
             </div>
         </div>
-        <!--div class="tab_content" id="design_content">
+        <div class="tab_content" id="json_content">
             <div class="tab_content_description">
-                <p class="c-txtsp">デザインの内容がここに入ります</p>
+                <div>
+                    <span id="summary">JSON整形</span>
+                </div>
+                <textarea rows="2" cols="40" id="minified_json_text" type="text" value=""></textarea>
+                <p id="jsonp_detected"></p>
+                <textarea readonly wrap="off" rows="18" cols="70" id="beautified_json_text" type="text" value=""></textarea>
             </div>
-        </div-->
+        </div>
+        <div class="tab_content" id="xml_content">
+            <div class="tab_content_description">
+                <div>
+                    <span id="summary">XML整形</span>
+                </div>
+                <textarea rows="2" cols="40" id="minified_xml_text" type="text" value=""></textarea>
+                <br>
+                <textarea readonly wrap="off" rows="18" cols="70" id="beautified_xml_text" type="text" value=""></textarea>
+            </div>
+        </div>
     </div>
 </body>
 <link rel="stylesheet" href="css/style.css">
-<script  type="application/javascript" src="js/init.js"></script>
-<script  type="application/javascript" src="js/decode.js"></script>
-<script  type="application/javascript" src="js/expass.js"></script>
+<script type="application/javascript" src="js/init.js"></script>
+<script type="application/javascript" src="js/decode.js"></script>
+<script type="application/javascript" src="js/expass.js"></script>
+<script type="application/javascript" src="js/diff.min.js"></script>
+<script type="application/javascript" src="js/beautify.js"></script>
 </html>
