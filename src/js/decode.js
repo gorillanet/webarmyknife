@@ -95,6 +95,29 @@ function utf8_16(str, isencode) {
     }
 }
 
+
+function utf8_16_plus(str, isencode) {
+    if (isencode) {
+        try {
+            var code, pref = {1: 'U+000', 2: 'U+00', 3: 'U+0', 4: 'U+'};
+            return str.replace(/\W/g, function(c) {
+                return pref[(code = c.charCodeAt(0).toString(16)).length] + code;
+            });
+        } catch (E) {
+            return E
+        }
+    }else{
+        try {
+            var r = /\\u([\d\w]{4})/gi;
+            x = str.replace(r, function (match, grp) {
+            return String.fromCharCode(parseInt(grp, 16)); } );
+            return unescape(x);
+        } catch (E) {
+            return E;
+        }
+    }
+}
+
 function isspcial(val) {
     
 }
@@ -184,7 +207,10 @@ var decode_encode = function(){
             decoded_text = utf8_16(text, is_encode);
             break;
         case "js":
-            decoded_text = js(text, is_encode);
+            decoded_text = js(text, is_encode);    
+        case "unicodeplus":
+            decoded_text = utf8_16_plus(text, is_encode);
+            break;
         default:
             break;
     }
