@@ -95,6 +95,34 @@ function utf8_16(str, isencode) {
     }
 }
 
+function isspcial(val) {
+    
+}
+
+function url_all(str, isencode) {
+    if (isencode) {
+        try{
+            result = "";
+            for(let val of str){
+                if(val.match(/[a-zA-Z0-9'!\(\)\~\-\*_\.]/g)){
+                    result += "%" + val.codePointAt(0).toString(16);
+                }else{
+                    result += encodeURIComponent(val);
+                }
+            }
+            return result;
+        } catch(E){
+            return E;
+        }
+    }else{
+        try {
+            return decodeURIComponent(str);
+        } catch (E) {
+            return E;
+        }
+    }
+}
+
 function js(str, isencode) {
     if (isencode) {
         try {
@@ -131,20 +159,27 @@ var decode_encode = function(){
             decoded_text = b64(text, is_encode);
             break;
         case "URL":
-            decoded_text = is_encode ? encodeURIComponent(text) : decodeURIComponent(text);
+            decoded_text = is_encode ? encodeURIComponent(text)
+                .replace(/'/g, "%27")
+                .replace(/!/g, "%21")
+                .replace(/\(/g, "%28")
+                .replace(/\)/g, "%29")
+                .replace(/\~/g, "%7E")
+                .replace(/\-/g, "%2D")
+                .replace(/\*/g, "%2A")
+                .replace(/_/g, "%5F")
+                .replace(/\./g, "%2E")
+                                    : decodeURIComponent(text);
             break;
         case "URLburp":
-            
+            decoded_text = url_all(text, is_encode);
             break;
-
         case "html16":
             decoded_text = html16(text, is_encode);
             break;
-            
         case "html10":
             decoded_text = html10(text, is_encode);
-        break;
-
+            break;
         case "unicode":
             decoded_text = utf8_16(text, is_encode);
             break;
