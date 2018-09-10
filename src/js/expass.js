@@ -5,30 +5,17 @@ function onError(error) {
 }
 
 function sendExposePasswordMessageToTabs(tabs) {
+    var tt = parseInt(document.getElementById("timeforexpass").value);
     for (let tab of tabs) {
       browser.tabs.sendMessage(
         tab.id,
-        {command: "expose"}
+        {command: "expose", t:tt}
       ).catch(onError);
     }
   }
-  function sendHidePasswordMessageToTabs(tabs) {
-    for (let tab of tabs) {
-      browser.tabs.sendMessage(
-        tab.id,
-        {command: "hide"}
-      ).catch(onError);
-    }
+  var expass = function(){
+    browser.tabs.query({
+      currentWindow: true,
+      active: true
+    }).then(sendExposePasswordMessageToTabs).catch(onError);
   }
-var expass = function(){
-  browser.tabs.query({
-    currentWindow: true,
-    active: true
-  }).then(sendExposePasswordMessageToTabs).catch(onError);
-}
-var hidepass = function(){
-  browser.tabs.query({
-    currentWindow: true,
-    active: true
-  }).then(sendHidePasswordMessageToTabs).catch(onError);
-}

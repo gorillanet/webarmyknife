@@ -1,7 +1,7 @@
 // popupコンテンツのイベントリスナの管理
 window.onload=function(){
     document.getElementById("button_expass").addEventListener('click', expass);
-    document.getElementById("button_hidepass").addEventListener('click', hidepass);
+    //document.getElementById("button_hidepass").addEventListener('click', hidepass);
     document.getElementById("decode_text").addEventListener('keyup', decode_encode);
     document.getElementById("decode_text").addEventListener('keydown', decode_encode);
     document.getElementById("decode_text").addEventListener('change', decode_encode);
