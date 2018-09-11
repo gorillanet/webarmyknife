@@ -12,7 +12,7 @@ var create_frame = function(){
     var src = document.getElementById("framesrc").value;
     var f = document.getElementById("framebox");
     if(isvalidurl(src)){
-        f.innerHTML = "<iframe width='500' height='300' id='testframe' src='"+src+"'></iframe>"
+        f.innerHTML = "<iframe width='500' height='300' id='testframe' src='"+src+"' sandbox></iframe>"
         
     }
 }
