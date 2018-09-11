@@ -43,6 +43,7 @@ input[name="tab_item"] {
 #expose_password:checked ~ #expose_password_content,
 #xml:checked ~ #xml_content,
 #diff:checked ~ #diff_content,
+#frame:checked ~ #frame_content,
 #json:checked ~ #json_content {
     display: block;
 }

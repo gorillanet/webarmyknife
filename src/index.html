@@ -23,9 +23,12 @@
         <input id="diff" type="radio" name="tab_item">
         <label class="tab_item" for="diff">diff</label>
 
+        <input id="frame" type="radio" name="tab_item">
+        <label class="tab_item" for="frame">iFrameTest</label>
+
         <div class="tab_content" id="tab_ed_content">
             <div class="tab_content_description">
-                <span id="summary">エンコード/デコード(未実装あり))</span>
+                <span id="summary">エンコード/デコード</span>
                 <div>
                     <div>
                         <textarea rows="4" cols="40" id="decode_text" type="text" value=""></textarea>
@@ -86,11 +89,22 @@
                 <textarea readonly wrap="off" rows="18" cols="70" id="beautified_xml_text" type="text" value=""></textarea>
             </div>
         </div>
+        <div class="tab_content" id="frame_content">
+            <div class="tab_content_description">
+                <div>
+                    <span id="summary">&lt;iframe&gt;TEST</span>
+                </div>
+                <input type="text" id="framesrc" size="40">
+                <button id="button_create_frame">TEST</button>
+                <div id="framebox"></div>
+            </div>
+        </div>
     </div>
 </body>
 <link rel="stylesheet" href="css/style.css">
 <script type="application/javascript" src="js/init.js"></script>
 <script type="application/javascript" src="js/decode.js"></script>
+<script type="application/javascript" src="js/frame.js"></script>
 <script type="application/javascript" src="js/expass.js"></script>
 <script type="application/javascript" src="js/diff.min.js"></script>
 <script type="application/javascript" src="js/beautify.js"></script>
