@@ -16,3 +16,14 @@ var create_frame = function(){
         
     }
 }
+var initialurl = function(){
+    browser.tabs.query({
+        currentWindow: true,
+        active: true
+      }).then(function(tabs){
+        for(let t of tabs){
+            document.getElementById("framesrc").value = t.url;
+        }
+      }).catch(onError);
+}
+initialurl();
