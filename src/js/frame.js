@@ -26,4 +26,19 @@ var initialurl = function(){
         }
       }).catch(onError);
 }
+
+var checkframe = function(){
+    try{
+        var d = document.getElementById("f");
+        if(d.contentDocument==null){
+            return;
+        }else{
+            d.src="data:text/html;base64,PHNwYW4gc3R5bGU9InJlZCI+Q3Jvc3MgT3JpZ2luPC9zcGFuPg=="
+        }
+    
+    }catch(E){
+        var d = document.getElementById("f");
+        d.src="data:text/html;base64,PHNwYW4gc3R5bGU9InJlZCI+Q3Jvc3MgT3JpZ2luPC9zcGFuPg=="
+    }
+}
 initialurl();
