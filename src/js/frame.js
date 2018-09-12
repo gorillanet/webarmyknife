@@ -5,14 +5,27 @@ function isvalidurl(i) {
     else
         return true;
 }
+
+function onError(error) {
+    console.error(`Error: ${error}`);
+  }
+  
 var frame_error = function(){
     document.getElementById("framebox").innerHTML = "<div style='color:red;'>Frame Error</div>"
+}
+var create_frame_sandbox = function(s){
+    var src = document.getElementById("framesrc").value;
+    var f = document.getElementById("framebox");
+    if(isvalidurl(src)){
+        f.innerHTML = "<iframe width='500' height='300' id='testframe' src='"+src+"' sandbox></iframe>"
+        
+    }
 }
 var create_frame = function(){
     var src = document.getElementById("framesrc").value;
     var f = document.getElementById("framebox");
     if(isvalidurl(src)){
-        f.innerHTML = "<iframe width='500' height='300' id='testframe' src='"+src+"' sandbox></iframe>"
+        f.innerHTML = "<iframe width='500' height='300' id='testframe' src='"+src+"'></iframe>"
         
     }
 }
@@ -22,7 +35,7 @@ var initialurl = function(){
         active: true
       }).then(function(tabs){
         for(let t of tabs){
-            document.getElementById("framesrc").value = t.url;
+            document.getElementById("framesrc").value = isvalidurl(t.url) ? t.url : "";
         }
       }).catch(onError);
 }
