@@ -24,6 +24,9 @@
         <input id="frame" type="radio" name="tab_item">
         <label class="tab_item" for="frame">iFrameTest</label>
 
+        <input id="safeguard" type="radio" name="tab_item">
+        <label class="tab_item" for="safeguard">SafeGuard</label>
+
         <div class="tab_content" id="tab_ed_content">
             <div class="tab_content_description">
                 <span id="summary">エンコード/デコード</span>
@@ -41,7 +44,7 @@
                         <option value="html10">HTML(DEC)</option>
                         <option value="unicode">Unicode</option>
                         <option value="unicodeplus">Unicode(U+ Style)</option>
-                        <option value="js">JS Executable</option>
+                        <option value="js">8bit</option>
                     </select>
                 </div>
                 <textarea readonly rows="4" cols="40" id="decoded_text" type="text" value=""></textarea>
@@ -92,9 +95,19 @@
                 <div>
                     <span id="summary">&lt;iframe&gt;TEST</span>
                 </div>
-                <input type="text" id="framesrc" size="40" onload="checkframe()">
-                <button id="button_create_frame">TEST(SANDBOX MODE)</button>
+                <input type="text" id="framesrc" size="40">
+                <div>
+                    <button id="button_create_frame">TEST</button>
+                    <button id="button_create_frame_sandbox">SANDBOX MODE</button>
+                </div>
                 <div id="framebox"></div>
+            </div>
+        </div>
+        <div class="tab_content" id="safeguard_content">
+            <div class="tab_content_description">
+                <div>
+                    <span id="summary">Safe Guard</span>
+                </div>
             </div>
         </div>
     </div>

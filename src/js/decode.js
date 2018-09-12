@@ -174,9 +174,10 @@ function js(str, isencode) {
 
 var decode_encode = function(){
     var text = document.getElementById("decode_text").value;
-    decode_type = document.getElementById("decode_typeoption").value;
+    var decode_type = document.getElementById("decode_typeoption").value;
     is_encode = document.getElementById("checkbox_encode").checked;
     var decoded_text="not implemented yet";
+    console.log(decode_type);
     switch (decode_type) {
         case "base64":
             decoded_text = b64(text, is_encode);
@@ -207,7 +208,8 @@ var decode_encode = function(){
             decoded_text = utf8_16(text, is_encode);
             break;
         case "js":
-            decoded_text = js(text, is_encode);    
+            decoded_text = js(text, is_encode); 
+            break;   
         case "unicodeplus":
             decoded_text = utf8_16_plus(text, is_encode);
             break;

@@ -44,6 +44,7 @@ input[name="tab_item"] {
 #xml:checked ~ #xml_content,
 #diff:checked ~ #diff_content,
 #frame:checked ~ #frame_content,
+#safeguard:checked ~ #safeguard_content,
 #json:checked ~ #json_content {
     display: block;
 }
