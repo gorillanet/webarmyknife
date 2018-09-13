@@ -24,6 +24,9 @@
         <input id="frame" type="radio" name="tab_item">
         <label class="tab_item" for="frame">iFrameTest</label>
 
+        <input id="sourcemap" type="radio" name="tab_item">
+        <label class="tab_item" for="sourcemap">SourceMap</label>
+
         <input id="safeguard" type="radio" name="tab_item">
         <label class="tab_item" for="safeguard">SafeGuard</label>
 
@@ -103,6 +106,17 @@
                 <div id="framebox"></div>
             </div>
         </div>
+        <div class="tab_content" id="sourcemap_content">
+            <div class="tab_content_description">
+                <div>
+                    <span id="summary">Source Downloader</span>
+                </div>
+                <input type="text" id="sourcemapsrc" size="40">
+                <div>
+                    <button id="button_get_source">GET</button>
+                </div>
+            </div>
+        </div>
         <div class="tab_content" id="safeguard_content">
             <div class="tab_content_description">
                 <div>
@@ -113,10 +127,13 @@
     </div>
 </body>
 <link rel="stylesheet" href="css/style.css">
+<script type="application/javascript" src="js/libs/source-map.js"></script>
 <script type="application/javascript" src="js/init.js"></script>
+<script type="application/javascript" src="js/test.js"></script>
 <script type="application/javascript" src="js/decode.js"></script>
 <script type="application/javascript" src="js/frame.js"></script>
 <script type="application/javascript" src="js/expass.js"></script>
 <script type="application/javascript" src="js/diff.min.js"></script>
 <script type="application/javascript" src="js/beautify.js"></script>
+<script type="application/javascript" src="js/source-map.js"></script>
 </html>

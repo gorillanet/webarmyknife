@@ -12,7 +12,10 @@
     },
   
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "*://*/*",
+        "downloads",
+        "downloads.open"
     ],
     "content_scripts": [
       {
