@@ -80,9 +80,18 @@ var downloader = function(){
 
 }
 var get_source = function(){
-    var js = '{"hello": "json"}';
+  var zip = new JSZip();
+  zip.file("Hello.txt", "Hello World\n");
+  /*
+  var img = zip.folder("images");
+  img.file("smile.gif", imgData, {base64: true});
+  */
+  zip.generateAsync({type:"blob"})
+  .then(function(content) {
+      // see FileSaver.js
+      objectURL = URL.createObjectURL(content);
+      browser.downloads.download({url: objectURL, saveAs: true, filename:"zip.zip"});
+  });
     var blob = new Blob([js], {type: "application/json"});
-    objectURL = URL.createObjectURL(blob);
-    browser.downloads.download({url: objectURL, saveAs: true});
     //loadFile("https://jsonplaceholder.typicode.com/todos/1", get_sourcemap);
 }
