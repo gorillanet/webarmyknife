@@ -53,11 +53,8 @@ var get_sourcemap = function(text, filename){
     new sourceMap.SourceMapConsumer(sm)
     .then(function(i){
       s = i.sources;
-      console.log(i.sources[0]);
       for(x in s){
         if(s[x].match(/^webpack:\/{2,3}\.?\/?/g)){
-              console.log(s[x]);
-              console.log(i.sourcesContent[x]);
               add_zip(s[x].replace(/^webpack:\/{2,3}\.?\/?/g, ""), i.sourcesContent[x]);
         }
       }
@@ -67,10 +64,8 @@ var get_sourcemap = function(text, filename){
 var downloader = function(filename){
   zip.generateAsync({type:"blob"})
   .then(function(content) {
-      // see FileSaver.js
       objectURL = URL.createObjectURL(content);
       var f = filename.replace(/\.\w{1,5}$/,".zip");
-      console.log(f);
       browser.downloads.download({url: objectURL, saveAs: true, filename:f});
   });
 
