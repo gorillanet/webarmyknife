@@ -30,8 +30,11 @@ function loadFile(url, callback) {
       if (xhr.status === 200) {
         callback(xhr.responseText, get_filename(url));
       } else {
+        document.getElementById("sourcemap_content").getElementsByClassName("error_message")[0].innerHTML = xhr.statusText + " An error occurred";
         console.error(xhr.statusText);
       }
+    }else{
+      document.getElementById("sourcemap_content").getElementsByClassName("error_message")[0].innerHTML = xhr.statusText + " An error occurred";
     }
   };
   xhr.onerror = function (e) {
@@ -71,6 +74,7 @@ var downloader = function(filename){
 
 }
 var get_source = function(){
+    document.getElementById("sourcemap_content").getElementsByClassName("error_message")[0].innerHTML="";
     zip = new JSZip();
     if(document.getElementById("sourcemapsrc").value){
       loadFile(document.getElementById("sourcemapsrc").value, get_sourcemap);

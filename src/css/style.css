@@ -4,6 +4,9 @@ body {
 textarea {
     resize: none;
 }
+#sourcemap_content .error_message{
+    color:#F46;
+}
 p{
     line-height: 100%;
     font-size: 0.8em;
