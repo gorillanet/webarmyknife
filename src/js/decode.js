@@ -172,6 +172,32 @@ function js(str, isencode) {
     }
 }
 
+function htmlspecialchars(str, is_encode){
+    if (is_encode) {
+        try {
+            return str
+            .replace(/'/g, "&#039;")
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        } catch (error) {
+            return "";
+        }
+    }else{
+        try {
+            return str
+            .replace(/&#039;/g, "'")
+            .replace(/&amp;/g, "&")
+            .replace(/&quot;/g, '"')
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">");
+        } catch (error) {
+            return "";
+        }
+    }
+}
+
 var decode_encode = function(){
     var text = document.getElementById("decode_text").value;
     var decode_type = document.getElementById("decode_typeoption").value;
@@ -212,6 +238,9 @@ var decode_encode = function(){
             break;   
         case "unicodeplus":
             decoded_text = utf8_16_plus(text, is_encode);
+            break;
+        case "htmlspecialchars":
+            decoded_text = htmlspecialchars(text, is_encode);
             break;
         default:
             break;
