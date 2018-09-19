@@ -161,6 +161,7 @@ function js(str, isencode) {
         try {
             var r = /\\[0-9]{1-3}/gi;
             x="";
+            // 今度直す
             for(let val of str){
                 x += val.replace(r, function (match, grp) {
                 return String.fromCharCode(parseInt(grp, 8)); } );
