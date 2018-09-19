@@ -5,6 +5,8 @@
 * JSON parse
 * XML parse
 * iframe TEST(Clickjacking TEST)
+* extract webpack
 ## TODO
 * hash / hmac
-* extract webpack
+* make QR
+* highlight anker
