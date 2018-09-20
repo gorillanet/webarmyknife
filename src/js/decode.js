@@ -85,7 +85,7 @@ function utf8_16(str, isencode) {
         }
     }else{
         try {
-            var r = /\\u([\d\w]{4})/gi;
+            var r = /\\u([\d\w]{1,6})/gi;
             x = str.replace(r, function (match, grp) {
             return String.fromCharCode(parseInt(grp, 16)); } );
             return unescape(x);
@@ -108,7 +108,7 @@ function utf8_16_plus(str, isencode) {
         }
     }else{
         try {
-            var r = /U\+([\d\w]{4})/gi;
+            var r = /U\+([\d\w]{1,6})/gi;
             x = str.replace(r, function (match, grp) {
             return String.fromCharCode(parseInt(grp, 16)); } );
             return unescape(x);
