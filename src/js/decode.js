@@ -1,7 +1,7 @@
 function reset() {
     document.getElementById("decoded_text").innerText="";
     decode_encode();
-    console.log("reset");
+    console.log(document.getElementById("decode_typeoption").value+": reset");
 }
 
 function b64(str, isencode) {
@@ -108,7 +108,7 @@ function utf8_16_plus(str, isencode) {
         }
     }else{
         try {
-            var r = /\\u([\d\w]{4})/gi;
+            var r = /U\+([\d\w]{4})/gi;
             x = str.replace(r, function (match, grp) {
             return String.fromCharCode(parseInt(grp, 16)); } );
             return unescape(x);
@@ -159,12 +159,18 @@ function js(str, isencode) {
         }
     }else{
         try {
-            var r = /\\[0-9]{1-3}/gi;
-            x="";
-            // 今度直す
-            for(let val of str){
-                x += val.replace(r, function (match, grp) {
-                return String.fromCharCode(parseInt(grp, 8)); } );
+            if (str!=undefined) {
+                var x="";
+                var test_i = 0;
+                for (let i = 0; i < str.length; i++) {
+                    if (str[i] == "\\") {
+                        var nums = "";
+                        for(let j = 1; str[j]!="\\" && j < str.length; j++){
+                            nums += str[i+j];
+                        }
+                        x += String.fromCharCode(parseInt(nums, 8));
+                    }
+                }
             }
             return x;
         } catch (E) {
@@ -204,7 +210,6 @@ var decode_encode = function(){
     var decode_type = document.getElementById("decode_typeoption").value;
     is_encode = document.getElementById("checkbox_encode").checked;
     var decoded_text="not implemented yet";
-    console.log(decode_type);
     switch (decode_type) {
         case "base64":
             decoded_text = b64(text, is_encode);
