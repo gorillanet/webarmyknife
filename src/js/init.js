@@ -9,8 +9,26 @@ window.onload=function(){
     document.getElementById("decode_text").addEventListener('change', decode_encode);
     document.getElementById("decode_typeoption").addEventListener('change', reset);
     document.getElementById("decoded_text").addEventListener('keyup', reset);
+    document.getElementById("qrtext").addEventListener('keyup', makeCode);
     document.getElementById("checkbox_encode").addEventListener('change', decode_encode);
     //document.getElementById("checkbox_encode").addEventListener('change', toggle_text);
     document.getElementById("minified_json_text").addEventListener('keyup', beautify_object);
     document.getElementById("minified_xml_text").addEventListener('keyup', beautify_xml);
 }
+var isvalidurl = function (v) {
+    var res = v.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+    if(res == null)
+        return false;
+    else
+        return true;
+}
+var currentURL = "";
+browser.tabs.query({
+    currentWindow: true,
+    active: true
+  }).then(function(tabs){
+    for(let t of tabs){
+        currentURL = t.url;
+        console.log("Current URL: "+currentURL);
+    }
+}).catch();
