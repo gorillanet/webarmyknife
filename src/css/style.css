@@ -57,6 +57,7 @@ input[name="tab_item"] {
 #frame:checked ~ #frame_content,
 #sourcemap:checked ~ #sourcemap_content,
 #safeguard:checked ~ #safeguard_content,
+#qr:checked ~ #qr_content,
 #json:checked ~ #json_content {
     display: block;
 }

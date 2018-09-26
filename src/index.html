@@ -27,6 +27,9 @@
         <input id="sourcemap" type="radio" name="tab_item">
         <label class="tab_item" for="sourcemap">Webpack</label>
 
+        <input id="qr" type="radio" name="tab_item">
+        <label class="tab_item" for="qr">QR</label>
+
         <input id="safeguard" type="radio" name="tab_item">
         <label class="tab_item" for="safeguard">SafeGuard</label>
 
@@ -121,6 +124,15 @@
                 </div>
             </div>
         </div>
+        <div class="tab_content" id="qr_content">
+            <div class="tab_content_description">
+                <div>
+                    <span class="summary">QR Code Gen / Decoder</span><br>
+                    <input type="text" size="40" id="qrtext"><br>
+                    <div id="qrcode"></div>
+                </div>
+            </div>
+        </div>
         <div class="tab_content" id="safeguard_content">
             <div class="tab_content_description">
                 <div>
@@ -133,9 +145,11 @@
 <link rel="stylesheet" href="css/style.css">
 <script type="application/javascript" src="js/libs/source-map.js"></script>
 <script type="application/javascript" src="js/libs/jszip.min.js"></script>
+<script type="application/javascript" src="js/libs/qrcode.min.js"></script>
 <script type="application/javascript" src="js/init.js"></script>
 <script type="application/javascript" src="js/test.js"></script>
 <script type="application/javascript" src="js/decode.js"></script>
+<script type="application/javascript" src="js/qrcode.js"></script>
 <script type="application/javascript" src="js/frame.js"></script>
 <script type="application/javascript" src="js/expass.js"></script>
 <script type="application/javascript" src="js/diff.min.js"></script>
