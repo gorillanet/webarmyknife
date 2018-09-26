@@ -1,10 +1,4 @@
-var isvalidurl = function (v) {
-    var res = v.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-    if(res == null)
-        return false;
-    else
-        return true;
-}
+
 
 function onError(error) {
     console.error(`Error: ${error}`);
@@ -29,16 +23,6 @@ var create_frame = function(){
         
     }
 }
-var initialurl = function(){
-    browser.tabs.query({
-        currentWindow: true,
-        active: true
-      }).then(function(tabs){
-        for(let t of tabs){
-            document.getElementById("framesrc").value = isvalidurl(t.url) ? t.url : "";
-        }
-      }).catch(onError);
-}
 
 var checkframe = function(){
     try{
@@ -54,4 +38,5 @@ var checkframe = function(){
         d.src="data:text/html;base64,PHNwYW4gc3R5bGU9InJlZCI+Q3Jvc3MgT3JpZ2luPC9zcGFuPg=="
     }
 }
-initialurl();
+
+document.getElementById("framesrc").value = isvalidurl(currentURL) ? currentURL : "";
