@@ -1,5 +1,6 @@
 "use strict";
-
+/*
+違うやつ
 function onError(error) {
   console.error(`Error: ${error}`);
 }
@@ -19,3 +20,4 @@ function sendExposePasswordMessageToTabs(tabs) {
       active: true
     }).then(sendExposePasswordMessageToTabs).catch(onError);
   }
+  */
