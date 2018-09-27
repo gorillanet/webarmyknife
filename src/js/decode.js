@@ -147,6 +147,7 @@ function url_all(str, isencode) {
 }
 
 function js(str, isencode) {
+    //たまに動かねえウンコード
     if (isencode) {
         try {
             result="";
