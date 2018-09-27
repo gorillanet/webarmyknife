@@ -32,7 +32,7 @@ function getrandom (all){
     else{
         return Math.floor(Math.random()*(123-48))+48;
     }
-}
+}/*
 function put_strength(n, len) {
     document.getElementById("text_strength").innerText=Math.log(n ** len) / Math.log(2);
-}
+}*/
