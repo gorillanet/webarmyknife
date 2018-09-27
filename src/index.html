@@ -30,8 +30,8 @@
         <input id="qr" type="radio" name="tab_item">
         <label class="tab_item" for="qr">QR</label>
 
-        <input id="highlight" type="radio" name="tab_item">
-        <label class="tab_item" for="highlight">Anker</label>
+        <input id="random" type="radio" name="tab_item">
+        <label class="tab_item" for="random">rand</label>
 
         <div class="tab_content" id="tab_ed_content">
             <div class="tab_content_description">
@@ -127,16 +127,21 @@
         <div class="tab_content" id="qr_content">
             <div class="tab_content_description">
                 <div>
-                    <span class="summary">QR Code Gen / Decoder</span><br>
+                    <span class="summary">QR Code Gen / <s> Decoder</s></span><br>
                     <input type="text" size="60" id="qrtext"><br>
                     <div id="qrcode"></div>
                 </div>
             </div>
         </div>
-        <div class="tab_content" id="highlight_content">
+        <div class="tab_content" id="random_content">
             <div class="tab_content_description">
                 <div>
-                    <span class="summary">Matakondo</span>
+                    <span class="summary">Random word generator</span><br>
+                    <p>Up to 100 words</p>
+                    <input type="text" id="random_text_length" size="6" value="10">
+                    Exclude special chars<input type="checkbox" id="exspecial"> <br>
+                    <button id="button_random">Generate</button>
+                    <div id="randomizedtext"></div>
                 </div>
             </div>
         </div>
@@ -151,6 +156,7 @@
 <script type="application/javascript" src="js/decode.js"></script>
 <script type="application/javascript" src="js/qrcode.js"></script>
 <script type="application/javascript" src="js/frame.js"></script>
+<script type="application/javascript" src="js/random.js"></script>
 <script type="application/javascript" src="js/highlightanker.js"></script>
 <script type="application/javascript" src="js/expass.js"></script>
 <script type="application/javascript" src="js/diff.min.js"></script>

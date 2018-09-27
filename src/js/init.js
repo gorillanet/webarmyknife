@@ -10,6 +10,7 @@ window.onload=function(){
     document.getElementById("decode_typeoption").addEventListener('change', reset);
     document.getElementById("decoded_text").addEventListener('keyup', reset);
     document.getElementById("qrtext").addEventListener('keyup', makeCode);
+    document.getElementById("button_random").addEventListener('click', randomize);
     document.getElementById("checkbox_encode").addEventListener('change', decode_encode);
     //document.getElementById("checkbox_encode").addEventListener('change', toggle_text);
     document.getElementById("minified_json_text").addEventListener('keyup', beautify_object);
