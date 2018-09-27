@@ -6,7 +6,8 @@
 * XML parse
 * iframe TEST(Clickjacking TEST)
 * extract webpack
+* make QR
+* Random words Generator
 ## TODO
 * hash / hmac
-* make QR
 * highlight anker
