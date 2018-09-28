@@ -25,6 +25,7 @@ var create_frame = function(){
 }
 
 var checkframe = function(){
+    console.log(currentURL);
     try{
         var d = document.getElementById("f");
         if(d.contentDocument==null){
@@ -39,4 +40,3 @@ var checkframe = function(){
     }
 }
 
-document.getElementById("framesrc").value = isvalidurl(currentURL) ? currentURL : "";

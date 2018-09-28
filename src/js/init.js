@@ -31,5 +31,7 @@ browser.tabs.query({
     for(let t of tabs){
         currentURL = t.url;
         console.log("Current URL: "+currentURL);
+        document.getElementById("framesrc").value = isvalidurl(currentURL) ? currentURL : "";
+        document.getElementById("qrtext").value = isvalidurl(currentURL) ? currentURL : "";
     }
 }).catch();
