@@ -15,6 +15,7 @@ window.onload=function(){
     //document.getElementById("checkbox_encode").addEventListener('change', toggle_text);
     document.getElementById("minified_json_text").addEventListener('keyup', beautify_object);
     document.getElementById("minified_xml_text").addEventListener('keyup', beautify_xml);
+    makeCode();
 }
 var isvalidurl = function (v) {
     var res = v.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);

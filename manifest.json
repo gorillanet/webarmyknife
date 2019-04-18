@@ -2,7 +2,7 @@
 
     "manifest_version": 2,
     "name": "WebArmyKnife",
-    "version": "0.1b",
+    "version": "0.1",
    
     "description": "A Toolbox for WebSecurity",
     
@@ -15,12 +15,15 @@
         "activeTab",
         "*://*/*",
         "downloads",
-        "downloads.open"
+        "downloads.open",
+        "tabs"
     ],
     "content_scripts": [
       {
         "matches": ["*://*/*"],
-        "js": ["main.js"]
+        "js": [
+          "main.js"
+        ]
       }
     ],
     "browser_action": {
