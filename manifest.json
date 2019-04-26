@@ -16,12 +16,14 @@
         "*://*/*",
         "downloads",
         "downloads.open",
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "content_scripts": [
       {
         "matches": ["*://*/*"],
         "js": [
+          "chrome.polyfill.js",
           "main.js"
         ]
       }

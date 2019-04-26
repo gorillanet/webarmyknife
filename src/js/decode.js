@@ -4,6 +4,12 @@ function reset() {
     console.log(document.getElementById("decode_typeoption").value+": reset");
 }
 
+function storeText(text){
+    chrome.storage.local.set(
+        {"decodeText": text}
+    )
+}
+
 function b64(str, isencode) {
     if(isencode){
         try { 
@@ -208,6 +214,7 @@ function htmlspecialchars(str, is_encode){
 
 var decode_encode = function(){
     var text = document.getElementById("decode_text").value;
+    storeText(text);
     var decode_type = document.getElementById("decode_typeoption").value;
     is_encode = document.getElementById("checkbox_encode").checked;
     var decoded_text="not implemented yet";
@@ -255,10 +262,15 @@ var decode_encode = function(){
     document.getElementById("decoded_text").value=decoded_text;
 }
 
-var toggle_text = function(){
+var toggleText = function(){
     var temp = document.getElementById("decoded_text").value
     document.getElementById("decoded_text").value = document.getElementById("decode_text").value;
     document.getElementById("decode_text").value = temp;
-
+    var c = document.getElementById("checkbox_encode");
+    if (c.checked) {
+        c.checked = false;
+    }else{
+        c.checked = true;
+    }
 }
 decode_encode();

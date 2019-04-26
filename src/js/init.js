@@ -7,6 +7,7 @@ window.onload=function(){
     document.getElementById("decode_text").addEventListener('keyup', decode_encode);
     document.getElementById("decode_text").addEventListener('keydown', decode_encode);
     document.getElementById("decode_text").addEventListener('change', decode_encode);
+    document.getElementById("toggleText").addEventListener('click', toggleText);
     document.getElementById("decode_typeoption").addEventListener('change', reset);
     document.getElementById("decoded_text").addEventListener('keyup', reset);
     document.getElementById("qrtext").addEventListener('keyup', makeCode);
@@ -16,6 +17,13 @@ window.onload=function(){
     document.getElementById("minified_json_text").addEventListener('keyup', beautify_object);
     document.getElementById("minified_xml_text").addEventListener('keyup', beautify_xml);
     makeCode();
+}
+
+function restore(){
+    chrome.storage.local.get("decodeText", function(v){
+        document.getElementById("decode_text").innerText=v["decodeText"];
+        decode_encode();
+    })
 }
 var isvalidurl = function (v) {
     var res = v.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
@@ -36,3 +44,5 @@ browser.tabs.query({
         document.getElementById("qrtext").value = isvalidurl(currentURL) ? currentURL : "";
     }
 }).catch();
+
+restore();

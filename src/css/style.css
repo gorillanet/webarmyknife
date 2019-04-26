@@ -23,8 +23,8 @@ span.summary{
 /*タブのスタイル*/
 .tab_item {
     padding: 1px 7px;
-    border-bottom: 3px solid #455a64;
-    background-color: #d9d9d9;
+    border-bottom: 2px solid #008ed6;
+    background-color: #fff;
     line-height: 130%;
     font-size: 13px;
     text-align: center;
@@ -43,7 +43,7 @@ input[name="tab_item"] {
 }
 /*タブ切り替えの中身のスタイル*/
 .tab_content {
-    min-width: 600px;
+    min-width: 500px;
     display: none;
     padding: 10px 10px 0;
     clear: both;
@@ -64,8 +64,7 @@ input[name="tab_item"] {
 }
 /*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab_item {
-    border-radius:3px 3px 0 0 / 3px 3px 0 0;
-    background-color: #455a64;
+    background-color: #008ed6;
     color: #fff;
 }
 table#ascii{

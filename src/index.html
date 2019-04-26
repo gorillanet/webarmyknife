@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="tabs">
+        
         <input id="tab_ed" type="radio" name="tab_item" checked>
         <label class="tab_item" for="tab_ed">D/E</label>
         
@@ -19,8 +20,8 @@
         <input id="xml" type="radio" name="tab_item">
         <label class="tab_item" for="xml">XML</label>
 
-        <input id="diff" type="radio" name="tab_item">
-        <label class="tab_item" for="diff">diff</label>
+        <!--input id="diff" type="radio" name="tab_item">
+        <label class="tab_item" for="diff">diff</label-->
 
         <input id="frame" type="radio" name="tab_item">
         <label class="tab_item" for="frame">iFrameTest</label>
@@ -52,8 +53,10 @@
                         <option value="html10">HTML(DEC)</option>
                         <option value="unicode">Unicode</option>
                         <option value="unicodeplus">Unicode(U+ Style)</option>
+                        <option value="unicodeplus">Hash(MD5)</option>
                         <option value="js">8bit</option>
                     </select>
+                    <button id="toggleText">Toggle</button>
                 </div>
                 <textarea readonly rows="4" cols="40" id="decoded_text" type="text" value=""></textarea>
                 <div>
